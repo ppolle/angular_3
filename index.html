@@ -153,8 +153,8 @@
             <div class="col-md-6">
                The following are Board members around the world.
                      <div class="panel panel-default" ng-repeat="x in names">
-                          <div class="panel-heading">Board Member: {{x.Name}}</div>
-                          <div class="panel-body">
+                          <div class="panel-heading"><input type="checkbox" ng-model="anime" style="float:left; margin-right:10px;">Board Member: {{x.Name}}</div>
+                          <div class="panel-body sample-show-hide" ng-show="anime">
                             {{x.Name+' is from '+ x.Country}}
                           </div>
                       </div>
