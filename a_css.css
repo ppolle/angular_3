@@ -1,0 +1,16 @@
+.app-form .ng-dirty.ng-invalid{
+		background: lightred;
+		
+	}
+
+	.app-form .ng-dirty.ng-valid{
+		background: lightgreen;
+	
+	}
+span{
+color:red;
+
+}
+footer{
+	text:center;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cytonn Currencies</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="a_css.css" rel="stylesheet">
+
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <script src = "angular.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+  </head>
+  
+  <body ng-app="mainApps">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"     aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Cytonn Currencies</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#registration">Registration</a></li>
+            <li><a href="#currency">Currency Converter</a></li>
+            <li><a href="#board">Board Members</a></li>
+            <li><a href="#contact">About Us</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div ng-view>
+
+
+      <script type = "text/ng-template" id = "registration.htm">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2> Registration </h2>
+                {{message}}
+                <form name="regForm" class="app-form" novalidate>
+                      <div class="form-group">
+
+                            <input type="text" name="first_name" class="form-control" ng-model="fname" placeholder="First Name" required>
+                            <span ng-show = "regForm.first_name.$dirty && regForm.first_name.$invalid">
+                                <span ng-show = "regForm.first_name.$error.required">First Name is required.</span>
+                            </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input type="text" name="last_name" class="form-control" ng-model="lname" placeholder="Last Name" required>
+                          <span  ng-show = "regForm.last_name.$dirty && regForm.last_name.$invalid">
+                            <span ng-show = "regForm.last_name.$error.required">Last Name is required.</span>
+                          </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input TYPE="email" name="email" class="form-control" ng-model="email" placeholder="Email" required>
+                          <span  ng-show = "regForm.email.$dirty && regForm.email.$invalid">
+                              <span ng-show = "regForm.email.$error.required">Email is required.</span>
+                              <span ng-show = "regForm.email.$error.email">Invalid email address.</span>
+                          </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input type="number" name="cell_number" class="form-control" ng-model="number" placeholder="Phone Number" required>
+                          <span  ng-show = "regForm.cell_number.$dirty && regForm.cell_number.$invalid">
+                            <span ng-show = "regForm.cell_number.$error.required">Cell number is required.</span>
+                          </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input type="date" name="date" class="form-control" ng-model="date" placeholder="D.O.B" required>
+                          <span  ng-show = "regForm.date.$dirty && regForm.date.$invalid">
+                            <span ng-show = "regForm.date.$error.required"> Date of birth is required.</span>
+                          </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input type="text" name="occupation" class="form-control" ng-model="occupation" placeholder="Occupation" required>
+                          <span  ng-show = "regForm.occupation.$dirty && regForm.occupation.$invalid">
+                            <span ng-show = "regForm.occupation.$error.required">Place of occupation is required.</span>
+                          </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input type="text" name="residence" class="form-control" ng-model="residence" placeholder="Residence" required>
+                          <span  ng-show = "regForm.residence.$dirty && regForm.residence.$invalid">
+                            <span ng-show = "regForm.residence.$error.required">Place of residence is required.</span>
+                          </span>
+                      </div>
+                      <div class="form-group">
+
+                          <input type="text" name="job" class="form-control" ng-model="place_occupation"placeholder="Place of Occupation" required>
+                          <span  ng-show = "regForm.job.$dirty && regForm.occupation.$invalid">
+                           <span ng-show = "regForm.job.$error.required">Place of occupation is required.</span>
+                          </span>
+                      </div>
+                          <a href="#currency" class="btn btn-primary" role="button">Submit</a>
+
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+      </script>
+           
+       <script type = "text/ng-template" id = "currency.htm">
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+              <h2> Currency Converter </h2>
+                  {{fname +" "+ lname}}<br>
+                  {{message}}
+                   <table class="table">
+                      <tr><td>Convert From:</td><td></td><td>To:</td><td></td></tr>
+                      <tr><td>US dollars</td><td><input type="number" ng-model="usd"></td><td>Ksh</td><td>{{usd*dollar}}</td></tr>
+                      <tr><td>Sterling Pound</td><td><input type="number" ng-model="stp"></td><td>ksh</td><td>{{stp*sterling}}</td></tr>
+                   </table>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+       </script>
+             
+       <script type = "text/ng-template" id = "contact.htm">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2> Contact Us </h2>
+                  {{message}}
+                    
+
+                 
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+       </script> 
+       <script type="text/ng-template" id ="board.htm">
+          <div class="rows">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+               The following are Board members around the world.
+                     <div class="panel panel-default" ng-repeat="x in names">
+                          <div class="panel-heading">Board Member: {{x.Name}}</div>
+                          <div class="panel-body">
+                            {{x.Name+' is from '+ x.Country}}
+                          </div>
+                      </div>
+                      
+              
+    
+               
+            </div>
+            <div class="col-md-3"></div>
+          </div>  
+       </script> 
+
+      </div>
+
+
+  </body>
+
+</html>
